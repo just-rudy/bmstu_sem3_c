@@ -17,7 +17,7 @@ int main() //задача 2 вариант 2
     float ac = sqrt((xa-xc)*(xa-xc) + (ya-yc)*(ya-yc));
     float cb = sqrt((xc-xb)*(xc-xb) + (yc-yb)*(yc-yb));
     float perimetr = ((ab+ac+cb)*1000000)/1000000;
-    printf("Perimeter: %f", ab+ac+cb);
+    printf("Perimeter: %f ", ab+ac+cb);
 
     return 0;
 }
