@@ -11,7 +11,7 @@ int main() //задача 4 вариант 2
     int minutes = sec / 60;
     sec = sec % 60;
 
-    printf("Hours: %d, minutes: %d, seconds: %d", hours, minutes, sec);
+    printf("Hours: %d , minutes: %d , seconds: %d ", hours, minutes, sec);
 
     return 0;
 }
