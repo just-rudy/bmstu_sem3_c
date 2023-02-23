@@ -1,47 +1,57 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <math.h>
 
-int main() //задача 6 вариант 2
+int check_dot_pos(double xa, double ya, double xb, double yb, double xc, double yc, double xp, double yp);
+
+int main()
 {
-    float xa, ya, xb, yb, xc, yc, xp, yp; // объявление координат
-    int check; // для проверки количества успешно введенных переменных
-    // ввод координат вершин треугольника
-    do
+    double xa, ya, xb, yb, xc, yc, xp, yp;
+    int check, check1, status = 0, position;
+    printf("Input xa, ya, xb, yb, xc, yc: ");
+    check = scanf("%lf%lf%lf%lf%lf%lf", &xa, &ya, &xb, &yb, &xc, &yc);
+    printf("Input xp, yp: ");
+    check1 = scanf("%lf%lf", &xp, &yp);
+    double chekABC = (xa - xc) * (yb - ya) - (xb - xa) * (ya - yc);
+    if (check != 6 || check1 != 2 || fabs(chekABC) < 1e-10)
     {
-        printf("input xa, ya, xb, yb, xc, yc: ");
-        check = scanf("%f%f%f%f%f%f", &xa, &ya, &xb, &yb, &xc, &yc);
-        fflush(stdin);
-        if (check != 6)
-        {
-            printf("input error, try again\n");
-        }
-    } while (check != 6);
-    // ввод координат точки P
-    do
-    {
-        printf("input xp, yp: ");
-        check = scanf("%f%f", &xp, &yp);
-        fflush(stdin);
-        if (check != 2)
-        {
-            printf("input error, try again\n");
-        }
-    } while (check != 2);
-
-    float chekAB = (xa-xp)*(yb-ya) - (xb-xa)*(ya-yp);
-    float chekBC = (xb-xp)*(yc-yb) - (xc-xb)*(yb-yp);
-    float chekAC = (xc-xp)*(ya-yc) - (xa-xc)*(yc-yp);
-
-    if ((chekAB < 0 && chekAC < 0 && chekBC < 0)||(chekAB > 0 && chekAC > 0 && chekBC > 0))
-    {
-        printf("%d", 0);
-    }
-    else if (chekAB == 0 || chekAC == 0 || chekBC == 0)
-    {
-        printf("%d", 1);
+        status = -1;
     }
     else
     {
-        printf("%d", 2);
+        position = check_dot_pos(xa, ya, xb, yb, xc, yc, xp, yp);
     }
+
+    if (status == 0)
+    {
+        printf("%d", position);
+    }
+    else
+    {
+        printf("Input error");
+    }
+    return status;
+}
+
+int check_dot_pos(double xa, double ya, double xb, double yb, double xc, double yc, double xp, double yp)
+{
+    int dot_pos = -1;
+    double chekAB = (xa - xp) * (yb - ya) - (xb - xa) * (ya - yp);
+    double chekBC = (xb - xp) * (yc - yb) - (xc - xb) * (yb - yp);
+    double chekAC = (xc - xp) * (ya - yc) - (xa - xc) * (yc - yp);
+    double eps = 1e-10;
+
+    if ((chekAB < 0 && chekAC < 0 && chekBC < 0)||(chekAB > 0 && chekAC > 0 && chekBC > 0))
+    {
+        dot_pos = 0;
+    }
+    else if ((fabs(chekAB) < eps && chekBC * chekAC >= 0) || (fabs(chekAC) < eps && chekBC * chekAB >= 0) || (fabs(chekBC) < eps && chekAB * chekAC >= 0))
+    {
+        dot_pos = 1;
+    }
+    else
+    {
+        dot_pos = 2;
+    }
+
+    return dot_pos;
 }

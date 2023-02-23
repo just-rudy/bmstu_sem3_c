@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main() //задача 4 вариант 2
+int main()
 {
     int sec;
     printf("Input seconds sec: ");

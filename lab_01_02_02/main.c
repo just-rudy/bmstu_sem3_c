@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int main() // задача 2 вариант 2
+int main()
 {
     double xa, ya, xb, yb, xc, yc;
     printf("Input a(x, y): ");

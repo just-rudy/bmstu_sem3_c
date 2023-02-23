@@ -1,39 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() //задача 5 вариант 2
+int fib(int n)
 {
-    int check, n;
-    char tmp;
-
-    printf("Input integer: ");
-
-    while (((check = scanf("%d%c", &n, &tmp)) != 2 && check != EOF) || tmp != '\n')
-    {
-        printf("Error. Input integer again: ");
-        do
-        {
-            check = scanf("%c", &tmp);
-        }
-        while (check != EOF && tmp != '\n');
-    }
+    int num = -1;
+    // printf("%d", n);
     if (n == 0)
     {
-        printf("Fib%d = %d", n, 0);
+        num = 0;
     }
     else if (n == 1)
     {
-        printf("Fib%d = %d", n, 1);
+        num = 1;
+    }
+    else if (n > 1 && n <= 46)
+    {
+        int n0 = 0, n1 = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            int tmp = n0 + n1;
+            n0 = n1;
+            n1 = tmp;
+        }
+        num = n1;
+    }
+    return num;
+}
+
+int main()
+{
+    int check, n, status = 0, ans = -1;
+
+    printf("Input integer: ");
+    check = scanf("%d", &n);
+    if (check != 1)
+    {
+        status = -1;
     }
     else
     {
-        int Fib0 = 0, Fib1 = 1;
-        for (int i = 0; i <= n; i++)
-        {
-            int tmp = Fib0;
-            Fib0 = Fib0 + Fib1;
-            Fib1 = tmp;
-        }
-        printf("Fib%d = %d", n, Fib1);
+        // printf("%d", n);
+        ans = fib(n);
     }
+
+    if (ans == -1)
+    {
+        printf("Input error");
+        status = -1;
+    }
+    else
+    {
+        printf("%d", ans);
+    }
+    return status;
 }
