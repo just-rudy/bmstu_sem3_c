@@ -11,8 +11,8 @@ int main()
     check = scanf("%lf%lf%lf%lf%lf%lf", &xa, &ya, &xb, &yb, &xc, &yc);
     printf("Input xp, yp: ");
     check1 = scanf("%lf%lf", &xp, &yp);
-    double chekABC = (xa - xc) * (yb - ya) - (xb - xa) * (ya - yc);
-    if (check != 6 || check1 != 2 || fabs(chekABC) < 1e-10)
+    double chek_abc = (xa - xc) * (yb - ya) - (xb - xa) * (ya - yc);
+    if (check != 6 || check1 != 2 || fabs(chek_abc) < 1e-10)
     {
         status = -1;
     }
@@ -35,16 +35,16 @@ int main()
 int check_dot_pos(double xa, double ya, double xb, double yb, double xc, double yc, double xp, double yp)
 {
     int dot_pos = -1;
-    double chekAB = (xa - xp) * (yb - ya) - (xb - xa) * (ya - yp);
-    double chekBC = (xb - xp) * (yc - yb) - (xc - xb) * (yb - yp);
-    double chekAC = (xc - xp) * (ya - yc) - (xa - xc) * (yc - yp);
+    double chek_ab = (xa - xp) * (yb - ya) - (xb - xa) * (ya - yp);
+    double chek_bc = (xb - xp) * (yc - yb) - (xc - xb) * (yb - yp);
+    double chek_ac = (xc - xp) * (ya - yc) - (xa - xc) * (yc - yp);
     double eps = 1e-10;
 
-    if ((chekAB < 0 && chekAC < 0 && chekBC < 0)||(chekAB > 0 && chekAC > 0 && chekBC > 0))
+    if ((chek_ab < 0 && chek_ac < 0 && chek_bc < 0) || (chek_ab > 0 && chek_ac > 0 && chek_bc > 0))
     {
         dot_pos = 0;
     }
-    else if ((fabs(chekAB) < eps && chekBC * chekAC >= 0) || (fabs(chekAC) < eps && chekBC * chekAB >= 0) || (fabs(chekBC) < eps && chekAB * chekAC >= 0))
+    else if ((fabs(chek_ab) < eps && chek_bc * chek_ac >= 0) || (fabs(chek_ac) < eps && chek_bc * chek_ab >= 0) || (fabs(chek_bc) < eps && chek_ab * chek_ac >= 0))
     {
         dot_pos = 1;
     }

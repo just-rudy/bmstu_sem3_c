@@ -7,8 +7,8 @@ int main()
     scanf("%f%f%f", &r1, &r2, &r3);
 
     float r = 1 / r1 + 1 / r2 + 1 / r3;
-    float R = 1 / r;
-    printf("R: %f ", R);
+    float r_ans = 1 / r;
+    printf("R: %f ", r_ans);
 
     return 0;
 }
