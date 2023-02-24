@@ -16,7 +16,8 @@ int main()
     double ab = sqrt((xa - xb) * (xa - xb) + (ya - yb) * (ya - yb));
     double ac = sqrt((xa - xc) * (xa - xc) + (ya - yc) * (ya - yc));
     double cb = sqrt((xc - xb) * (xc - xb) + (yc - yb) * (yc - yb));
-    printf("Perimeter: %lf ", ab + ac + cb);
+    double p = ab + ac + cb;
+    printf("Perimeter: %lf ", p);
 
     return 0;
 }
