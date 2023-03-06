@@ -1,30 +1,7 @@
 #include <stdio.h>
+#define MAX_INT 46
 
-int fib(int n)
-{
-    int num = -1;
-    // printf("%d", n);
-    if (n == 0)
-    {
-        num = 0;
-    }
-    else if (n == 1)
-    {
-        num = 1;
-    }
-    else if (n > 1 && n <= 46)
-    {
-        int n0 = 0, n1 = 1;
-        for (int i = 2; i <= n; i++)
-        {
-            int tmp = n0 + n1;
-            n0 = n1;
-            n1 = tmp;
-        }
-        num = n1;
-    }
-    return num;
-}
+int fib(int n);
 
 int main()
 {
@@ -52,4 +29,31 @@ int main()
         printf("%d", ans);
     }
     return status;
+}
+
+
+int fib(int n)
+{
+    int num = -1;
+    // printf("%d", n);
+    if (n == 0)
+    {
+        num = 0;
+    }
+    else if (n == 1)
+    {
+        num = 1;
+    }
+    else if (n > 1 && n <= MAX_INT)
+    {
+        int n0 = 0, n1 = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            int tmp = n0 + n1;
+            n0 = n1;
+            n1 = tmp;
+        }
+        num = n1;
+    }
+    return num;
 }

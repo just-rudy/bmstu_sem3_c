@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <math.h>
+#define EPS_FIX 1e-10
 
 double calc_sum(double x, double eps);
 
 int main()
-// f(x) = arcsin(x) delta_a = |f(x) - s(x)|, delta_o = |f(x)-s(x)|/|f(x)|
 {
     double x, eps;
     int check, status = -1;
@@ -19,7 +19,7 @@ int main()
     {
         double sm = calc_sum(x, eps), f_x = asin(x);
         double delta_a = fabs(f_x - sm);
-        double delta_o = (fabs(f_x) < 1e-10) ? 0 : fabs(f_x - sm) / f_x;
+        double delta_o = (fabs(f_x) < EPS_FIX) ? 0 : fabs(f_x - sm) / f_x;
 
         printf("s(x) = %lf , f(x) = %lf\ndelta_abs = %lf , delta_otn = %lf ", sm, f_x, delta_a, delta_o);
         status = 0;

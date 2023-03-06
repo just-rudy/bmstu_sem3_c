@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define BYTES 32
 
 void printing(unsigned int a, int n, int status);
 
@@ -22,12 +23,12 @@ void printing(unsigned int a, int n, int status)
 {
     if (status == 0)
     {
-        unsigned int ans = a << n | a >> (32 - n);
-        int cnt = 32;
+        unsigned int ans = a << n | a >> (BYTES - n);
+        int cnt = BYTES;
         printf("Result: ");
         while (cnt > 0)
         {
-            unsigned int tmp = ans >> 31;
+            unsigned int tmp = ans >> BYTES-1;
             printf("%u", tmp);
             ans <<= 1;
             cnt--;
