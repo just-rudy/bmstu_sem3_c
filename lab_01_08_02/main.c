@@ -28,7 +28,7 @@ void printing(unsigned int a, int n, int status)
         printf("Result: ");
         while (cnt > 0)
         {
-            unsigned int tmp = ans >> BYTES-1;
+            unsigned int tmp = ans >> (BYTES-1);
             printf("%u", tmp);
             ans <<= 1;
             cnt--;
