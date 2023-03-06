@@ -15,7 +15,6 @@ int main()
     printf("Input c(x, y): ");
     scanf("%lf%lf", &xc, &yc);
 
-    double ab = sqrt((xa - xb) * (xa - xb) + (ya - yb) * (ya - yb));
     double p = perimeter(xa, ya, xb, yb, xc, yc);
     printf("Perimeter: %lf ", p);
 
