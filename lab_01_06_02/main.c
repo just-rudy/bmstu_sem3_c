@@ -7,8 +7,8 @@ double if_triangle(double xa, double ya, double xb, double yb, double xc, double
 
 int main()
 {
-    double xa, ya, xb, yb, xc, yc, xp, yp;
-    int check, check1, status = 0, position;
+    double xa = 0, ya = 0, xb = 0, yb = 0, xc = 0, yc = 0, xp = 0, yp = 0;
+    int check = 0, check1 = 0, status = 0, position = 0;
     printf("Input xa, ya, xb, yb, xc, yc: ");
     check = scanf("%lf%lf%lf%lf%lf%lf", &xa, &ya, &xb, &yb, &xc, &yc);
     printf("Input xp, yp: ");
@@ -56,7 +56,6 @@ int check_dot_pos(double xa, double ya, double xb, double yb, double xc, double 
 
     return dot_pos;
 }
-
 
 double if_triangle(double xa, double ya, double xb, double yb, double xc, double yc)
 {

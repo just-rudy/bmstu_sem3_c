@@ -3,8 +3,8 @@
 
 int main()
 {
-    double g_x = 0, x;
-    int n = 0, check, status = 0;
+    double g_x = 0, x = 0;
+    int n = 0, check = 0, status = 0;
     printf("Input x: ");
     check = scanf("%lf", &x);
     while (check == 1 && x >= 0)

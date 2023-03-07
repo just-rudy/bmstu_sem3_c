@@ -5,7 +5,7 @@ double perimeter(double xa, double ya, double xb, double yb, double xc, double y
 
 int main()
 {
-    double xa, ya, xb, yb, xc, yc;
+    double xa = 0, ya = 0, xb = 0, yb = 0, xc = 0, yc = 0;
     printf("Input a(x, y): ");
     scanf("%lf%lf", &xa, &ya);
 

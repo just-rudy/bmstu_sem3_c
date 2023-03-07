@@ -5,7 +5,7 @@ int fib(int n);
 
 int main()
 {
-    int check, n, status = 0, ans = -1;
+    int check = 0, n = 0, status = 0, ans = -1;
 
     printf("Input integer: ");
     check = scanf("%d", &n);
@@ -15,7 +15,6 @@ int main()
     }
     else
     {
-        // printf("%d", n);
         ans = fib(n);
     }
 
@@ -31,11 +30,9 @@ int main()
     return status;
 }
 
-
 int fib(int n)
 {
     int num = -1;
-    // printf("%d", n);
     if (n == 0)
     {
         num = 0;

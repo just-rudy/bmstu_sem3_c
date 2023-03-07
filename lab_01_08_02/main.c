@@ -5,8 +5,8 @@ void printing(unsigned int a, int n, int status);
 
 int main()
 {
-    unsigned int a;
-    int n, status = 0;
+    unsigned int a = 0;
+    int n = 0, status = 0;
 
     printf("Input a, n: ");
     int check = scanf("%u%d", &a, &n);
@@ -28,7 +28,7 @@ void printing(unsigned int a, int n, int status)
         printf("Result: ");
         while (cnt > 0)
         {
-            unsigned int tmp = ans >> (BYTES-1);
+            unsigned int tmp = ans >> (BYTES - 1);
             printf("%u", tmp);
             ans <<= 1;
             cnt--;
