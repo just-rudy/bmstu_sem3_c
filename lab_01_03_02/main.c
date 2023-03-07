@@ -6,10 +6,10 @@ int main()
 {
     double r1 = 0, r2 = 0, r3 = 0;
     printf("Input R1, R2, R3: ");
-    scanf("%f%f%f", &r1, &r2, &r3);
+    scanf("%lf%lf%lf", &r1, &r2, &r3);
 
     double r = resistance(r1, r2, r3);
-    printf("R: %f ", r);
+    printf("R: %lf ", r);
 
     return 0;
 }
