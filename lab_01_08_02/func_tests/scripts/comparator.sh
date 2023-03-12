@@ -3,7 +3,7 @@
 file1=$1
 file2=$2
 
-regular="^[-+]?[0-9]+([.]{1}[0-9]+)?"
+regular="Result: .*"
 
 from_f1=grep -e "$regular" "$file1"
 from_f2=grep -e "$regular" "$file2"
