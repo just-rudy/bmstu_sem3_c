@@ -1,1 +1,0 @@
-Input xa, ya, xb, yb, xc, yc: Input xp, yp: 0

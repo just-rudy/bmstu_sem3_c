@@ -1,18 +1,24 @@
 #!/bin/bash
 
-input=$1
-output_exp=$2
-output="output.txt"
+inn=$1
+out_expect=$2
+out="TMP_output.txt"
 
-program="./main.exe"
+program="../../app.exe"
 
-$program < $input > $output
+launch=$program < "$inn" > $out
 
-comparator="./func_tests/scripts/comparator.sh"
+comparator="./comparator.sh"
 
-res=$($comparator $output $output_exp)
-if [ $res -eq 0 ]; then
-    echo Тест пройден
+if $launch; then
+    if bash ./comparator.sh "$out" "$out_expect"; then
+        exit 0
+        echo Тест пройдет
+    else
+        exit 1
+        echo Ошибка
+    fi
 else
+    exit 1
     echo Ошибка
 fi
