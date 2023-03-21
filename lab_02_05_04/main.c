@@ -55,7 +55,7 @@ int calc_uniq_numbers(int *beginning, int *ending, int *arr)
     {
         int is_uniq = 1;
         int *current_layer2 = beginning;
-        while (current_layer2 < ending && is_uniq)
+        while (current_layer2 < current && is_uniq)
         {
             if (current_layer2 != current && *current == *current_layer2)
             {

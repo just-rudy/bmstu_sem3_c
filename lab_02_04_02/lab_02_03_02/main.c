@@ -28,7 +28,7 @@ int input_arr(int *n, int *arr)
         arr[*n] = tmp;
         (*n)++;
         fflush(stdin);
-        if (*n != N+1)
+        if (*n != N + 1)
             check = scanf("%d", &tmp);
     }
     if ((*n) == N && check == 1)

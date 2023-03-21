@@ -29,6 +29,7 @@ int main()
             }
         }
     }
+    return status;
 }
 
 int input_arr(int n, int *arr)
@@ -45,6 +46,7 @@ int input_arr(int n, int *arr)
         else
         {
             status = 1;
+            printf("Incorrect input error");
         }
     }
     return status;
@@ -74,14 +76,19 @@ int change_arr(int n, int *arr, int *new_n)
         {
             i++;
         }
-        if (i+diff < n)
+        if (i + diff < n)
         {
-            arr[i] = arr[i+diff];
+            arr[i] = arr[i + diff];
         }
         else
         {
             i = n;
         }
+    }
+    if (*new_n == 0)
+    {
+        printf("array is empty");
+        status = 1;
     }
     return status;
 }

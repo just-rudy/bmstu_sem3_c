@@ -39,6 +39,7 @@ int input_arr(int n, int *arr)
         if (check != 1)
         {
             status = 1;
+            printf("Incorrect input error");
             break;
         }
         else
@@ -46,7 +47,6 @@ int input_arr(int n, int *arr)
             arr[i] = tmp;
         }
     }
-
     return status;
 }
 
@@ -56,8 +56,12 @@ int make_arr(int n, int *new_n, int *arr, int *new_arr)
     for (int i = 0; i < n; i++)
     {
         int tmp = arr[i];
+        if (tmp < 0)
+        {
+            tmp *= -1;
+        }
         int end = tmp % 10;
-        while (tmp > 10)
+        while (tmp >= 10)
         {
             tmp /= 10;
         }
@@ -68,9 +72,10 @@ int make_arr(int n, int *new_n, int *arr, int *new_arr)
             (*new_n)++;
         }
     }
-    if (new_n == 0)
+    if (*new_n == 0)
     {
         status = 1;
+        printf("new array is empty");
     }
     return status;
 }
