@@ -2,13 +2,13 @@
 #define N 10
 
 int input_arr(int n, int *arr);
-double cnt_aver(int n, int *arr);
+int cnt_aver(int n, int *arr, double *average);
 
 int main()
 {
-    int n = 0, check = 0, status = 0, arr[10];
+    int n = 0, check = 0, status = 0, arr[N];
     check = scanf("%d", &n);
-    if (check != 1 || n > 10 || n <= 0)
+    if (check != 1 || n > N || n <= 0)
     {
         status = 1;
     }
@@ -18,14 +18,11 @@ int main()
         status = input_arr(n, arr);
         if (status == 0)
         {
-            double average = cnt_aver(n, arr);
-            if (average != 0)
+            double average = 0;
+            status = cnt_aver(n, arr, &average);
+            if (status != 1)
             {
                 printf("%lf", average);
-            }
-            else
-            {
-                status = 1;
             }
         }
     }
@@ -53,10 +50,9 @@ int input_arr(int n, int *arr)
     return status;
 }
 
-double cnt_aver(int n, int *arr)
+int cnt_aver(int n, int *arr, double *average)
 {
-    int cnt = 0, sm = 0;
-    double aver_res = 0;
+    int cnt = 0, sm = 0, status = 1;
     for (int i = 0; i < n; i++)
     {
         if (arr[i] < 0)
@@ -67,7 +63,8 @@ double cnt_aver(int n, int *arr)
     }
     if (cnt > 0)
     {
-        aver_res = sm*(1.0) / cnt;
+        *average = (double)sm / cnt;
+        status = 0;
     }
-    return aver_res;
+    return status;
 }
