@@ -16,7 +16,9 @@
                 "-Wfloat-equal",
                 "-Wfloat-conversion",
                 "-std=c99",
-                "-Wvla"
+                "-Wvla",
+                "-Wextra",
+                "-Wpedantic"
             ],
             "options": {
                 "cwd": "${fileDirname}"

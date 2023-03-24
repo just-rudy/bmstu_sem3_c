@@ -34,7 +34,7 @@ int input_arr(int n, int *arr)
     int status = 0, check = 0;
     for (int i = 0; i < n; i++)
     {
-        int tmp;
+        int tmp = 0;
         check = scanf("%d", &tmp);
         if (check != 1)
         {
