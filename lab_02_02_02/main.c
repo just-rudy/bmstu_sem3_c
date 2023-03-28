@@ -1,9 +1,9 @@
 #include <stdio.h>
 #define N 10
 
-int input_arr(int n, int *arr);
-int make_arr(int n, int *new_n, int *arr, int *new_arr);
-void print_arr(int new_n, int *arr);
+int input_arr(int *arr, int n);
+int make_arr(int *arr, int n, int *new_arr, int *new_n);
+void print_arr(int *new_arr, int new_n);
 
 int main()
 {
@@ -13,34 +13,39 @@ int main()
     {
         status = 1;
     }
-
-    if (status == 0)
+    else
     {
-        status = input_arr(n, arr);
-        if (status == 0)
+        status = input_arr(arr, n);
+        if (status == 1)
         {
-            status = make_arr(n, &new_n, arr, new_arr);
+            printf("Incorrect input error");
+        }
+        else
+        {
+            status = make_arr(arr, n, new_arr, &new_n);
             if (status == 0)
             {
-                print_arr(new_n, new_arr);
+                print_arr(new_arr, new_n);
+            }
+            else
+            {
+                printf("new array is empty");
             }
         }
     }
     return status;
 }
 
-int input_arr(int n, int *arr)
+int input_arr(int *arr, int n)
 {
     int status = 0, check = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n && !status; i++)
     {
         int tmp;
         check = scanf("%d", &tmp);
         if (check != 1)
         {
             status = 1;
-            printf("Incorrect input error");
-            break;
         }
         else
         {
@@ -50,7 +55,7 @@ int input_arr(int n, int *arr)
     return status;
 }
 
-int make_arr(int n, int *new_n, int *arr, int *new_arr)
+int make_arr(int *arr, int n, int *new_arr, int *new_n)
 {
     int status = 0;
     for (int i = 0; i < n; i++)
@@ -75,12 +80,11 @@ int make_arr(int n, int *new_n, int *arr, int *new_arr)
     if (*new_n == 0)
     {
         status = 1;
-        printf("new array is empty");
     }
     return status;
 }
 
-void print_arr(int new_n, int *new_arr)
+void print_arr(int *new_arr, int new_n)
 {
     for (int i = 0; i < new_n; i++)
     {

@@ -3,10 +3,10 @@
 #define N 10
 #define EPS 1e-10
 
-int input_arr(int n, int *arr);
+int input_arr(int *arr, int n);
 int check_num(int num);
-int change_arr(int n, int *arr, int *new_n);
-void print_arr(int n, int *arr);
+int change_arr(int *arr, int n, int *new_n);
+void print_arr(int *arr, int new_n);
 
 int main()
 {
@@ -19,20 +19,28 @@ int main()
     else
     {
         int new_n = n;
-        status = input_arr(n, arr);
+        status = input_arr(arr, n);
         if (status == 0)
         {
-            status = change_arr(n, arr, &new_n);
+            status = change_arr(arr, n, &new_n);
             if (status == 0)
             {
-                print_arr(new_n, arr);
+                print_arr(arr, new_n);
             }
+            else
+            {
+                printf("array is empty");
+            }
+        }
+        else
+        {
+            printf("Incorrect input error");
         }
     }
     return status;
 }
 
-int input_arr(int n, int *arr)
+int input_arr(int *arr, int n)
 {
     int status = 0;
     for (int i = 0; i < n; i++)
@@ -46,7 +54,6 @@ int input_arr(int n, int *arr)
         else
         {
             status = 1;
-            printf("Incorrect input error");
         }
     }
     return status;
@@ -62,7 +69,7 @@ int check_num(int num)
     return if_square;
 }
 
-int change_arr(int n, int *arr, int *new_n)
+int change_arr(int *arr, int n, int *new_n)
 {
     int status = 0, diff = 0, i = 0;
     while (i < n)
@@ -87,13 +94,12 @@ int change_arr(int n, int *arr, int *new_n)
     }
     if (*new_n == 0)
     {
-        printf("array is empty");
         status = 1;
     }
     return status;
 }
 
-void print_arr(int new_n, int *arr)
+void print_arr(int *arr, int new_n)
 {
     for (int i = 0; i < new_n; i++)
     {

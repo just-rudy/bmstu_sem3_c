@@ -4,7 +4,7 @@
 #define EPS 1e-10
 
 int input_arr(int *beginning, int *ending);
-int calc_uniq_numbers(int *beginning, int *ending, int *arr);
+int calc_uniq_numbers(int *beginning, int *ending);
 void print_arr(int *beginning, int *ending);
 
 int main()
@@ -23,7 +23,7 @@ int main()
         status = input_arr(beginning, ending);
         if (status == 0)
         {
-            cnt = calc_uniq_numbers(beginning, ending, arr);
+            cnt = calc_uniq_numbers(beginning, ending);
         }
         printf("%d", cnt);
     }
@@ -47,7 +47,7 @@ int input_arr(int *beginning, int *ending)
     return status;
 }
 
-int calc_uniq_numbers(int *beginning, int *ending, int *arr)
+int calc_uniq_numbers(int *beginning, int *ending)
 {
     int cnt = 0;
     int *current = beginning;
@@ -60,9 +60,11 @@ int calc_uniq_numbers(int *beginning, int *ending, int *arr)
             if (current_layer2 != current && *current == *current_layer2)
             {
                 is_uniq = 0;
-                break;
             }
-            current_layer2++;
+            else
+            {
+                current_layer2++;
+            }
         }
         if (is_uniq)
         {

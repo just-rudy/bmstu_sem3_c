@@ -2,23 +2,24 @@
 #include <math.h>
 #define N 10
 
-int input_arr(int *n, int *arr);
-void selection_sort(int n, int *arr);
-void print_arr(int n, int *arr);
+int input_arr(int *arr, int *n);
+void selection_sort(int *arr, int n);
+void swap(int *link1, int *link2);
+void print_arr(int *arr, int new_n);
 
 int main()
 {
     int n = 0, status = 0, arr[N];
-    status = input_arr(&n, arr);
+    status = input_arr(arr, &n);
     if (status == 0)
     {
-        selection_sort(n, arr);
+        selection_sort(arr, n);
     }
-    print_arr(n, arr);
+    print_arr(arr, n);
     return status;
 }
 
-int input_arr(int *n, int *arr)
+int input_arr(int *arr, int *n)
 {
     int status = 0, tmp = 0;
     int check = scanf("%d", &tmp);
@@ -41,7 +42,15 @@ int input_arr(int *n, int *arr)
     return status;
 }
 
-void selection_sort(int n, int *arr)
+void swap(int *link1, int *link2)
+{
+    int tmp = *link1;
+    *link1 = *link2;
+    *link2 = tmp;
+
+}
+
+void selection_sort(int *arr, int n)
 {
     int i_sort = 0, i_mn = 0;
     while (i_sort < n)
@@ -56,14 +65,14 @@ void selection_sort(int n, int *arr)
                 i_mn = i;
             }
         }
-        int tmp = arr[i_sort];
-        arr[i_sort] = arr[i_mn];
-        arr[i_mn] = tmp;
+        int *link1 = arr + i_sort;
+        int *link2 = arr + i_mn;
+        swap(link1, link2);
         i_sort++;
     }
 }
 
-void print_arr(int new_n, int *arr)
+void print_arr(int *arr, int new_n)
 {
     for (int i = 0; i < new_n; i++)
     {
