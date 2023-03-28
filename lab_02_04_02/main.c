@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 #define N 10
-#define EPS 1e-10
 
 int input_arr(int *n, int *arr);
 void selection_sort(int n, int *arr);
@@ -34,6 +33,10 @@ int input_arr(int *n, int *arr)
     if ((*n) == N && check == 1)
     {
         status = 100;
+    }
+    if ((*n) < 1)
+    {
+        status = 1;
     }
     return status;
 }
