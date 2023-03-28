@@ -47,7 +47,6 @@ void swap(int *link1, int *link2)
     int tmp = *link1;
     *link1 = *link2;
     *link2 = tmp;
-
 }
 
 void selection_sort(int *arr, int n)
