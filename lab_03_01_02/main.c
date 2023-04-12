@@ -8,7 +8,8 @@ void print_arr(int *arr, int arr_n);
 
 int main()
 {
-    int status = 0, rows = 0, cols = 0, mat[MAX_SIZE][MAX_SIZE], check = 0;
+    int status = 0, rows = 0, cols = 0, check = 0;
+    matrix mat;
     printf("Input number of rows and number of columns: ");
     check = scanf("%d%d", &rows, &cols);
     if (check != 2 || rows > MAX_SIZE || rows <= 0 || cols > MAX_SIZE || cols <= 0)
