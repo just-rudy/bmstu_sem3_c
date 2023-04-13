@@ -113,7 +113,7 @@ void reverse_arr(int *simple_arr, int cnt)
 
 void full_matrix(matrix arr, int rows, int cols, int *simple_arr)
 {
-    int * curr_simple_el = simple_arr;
+    int *curr_simple_el = simple_arr;
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)

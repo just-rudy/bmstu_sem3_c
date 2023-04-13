@@ -15,7 +15,6 @@ int main()
     printf("Input number of rows and columns: ");
     check = scanf("%d%d", &rows, &cols);
     if (check != 2 || rows > MAX_SIZE || rows <= 0 || cols > MAX_SIZE || cols <= 0)
-
     {
         printf("Input error");
         status = 1;
