@@ -4,4 +4,4 @@ echo ""
 echo "coverage: "
 echo ""
 
-gcov main.c
+gcov *.c

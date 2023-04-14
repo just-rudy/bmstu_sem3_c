@@ -1,9 +1,7 @@
 #include <stdio.h>
-#define MAX_SIZE 10
-typedef int matrix[MAX_SIZE][MAX_SIZE];
-
-int input_array(matrix arr, int rows, int cols);
-int look_for_5(matrix arr, int rows, int cols, int *max_num);
+#include "consts.h"
+#include "input.h"
+#include "tasks.h"
 
 int main()
 {
@@ -31,43 +29,5 @@ int main()
         else
             printf("Array input error");
     }
-    return status;
-}
-
-int input_array(matrix arr, int rows, int cols)
-{
-    int status = 0, check = 0;
-
-    for (int i = 0; i < rows && !status; i++)
-    {
-        printf("Введите строку матрицы [%d]: ", i);
-        for (int j = 0; j < cols && !status; j++)
-        {
-            int tmp = 0;
-            check = scanf("%d", &tmp);
-            if (check == 1)
-                arr[i][j] = tmp;
-            else
-                status = 1;
-        }
-    }
-
-    return status;
-}
-
-int look_for_5(matrix arr, int rows, int cols, int *max_num)
-{
-    int status = 0, max = 0;
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = cols - i; j < cols; j++)
-        {
-            int element = (arr[i][j] < 0) ? arr[i][j] * (-1) : arr[i][j];
-            if (element % 10 == 5 && (arr[i][j] > max || max == 0))
-                max = arr[i][j];
-        }
-    }
-    status = max ? 0 : 1;
-    (*max_num) = max;
     return status;
 }
