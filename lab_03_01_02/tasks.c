@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "consts.h"
+#include "tasks.h"
 
 int check_column(matrix mat, int rows, int col);
 

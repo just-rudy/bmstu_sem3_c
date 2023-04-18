@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "consts.h"
+#include "tasks.h"
 
 void shift_left(matrix arr, int rows, int cols, int curr);
 int check_odd_sum(matrix arr, int rows, int cols);

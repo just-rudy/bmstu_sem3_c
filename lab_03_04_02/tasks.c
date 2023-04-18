@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "consts.h"
+#include "tasks.h"
 
 int look_for_5(matrix arr, int rows, int cols, int *max_num)
 {

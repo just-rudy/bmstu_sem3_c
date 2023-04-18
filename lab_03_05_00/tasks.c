@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "consts.h"
+#include "tasks.h"
 
 int check_if_simple(int element);
 void swap(int *link1, int *link2);
@@ -29,6 +28,12 @@ int make_arr(matrix arr, int rows, int cols, int *simple_arr, int *cnt)
         }
     }
     status = (*cnt) ? 0 : 1;
+    if (status == 0)
+        {
+            reverse_arr(simple_arr, cnt);
+            full_matrix(arr, rows, cols, simple_arr);
+            print_arr(arr, rows, cols);
+        }
     return status;
 }
 

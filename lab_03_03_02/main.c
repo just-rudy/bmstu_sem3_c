@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "consts.h"
 #include "input.h"
 #include "tasks.h"

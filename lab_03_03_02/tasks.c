@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "consts.h"
+#include "tasks.h"
 
 void swap(int *link1, int *link2);
 int row_key(matrix arr, int row, int cols);

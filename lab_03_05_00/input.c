@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "consts.h"
+#include "input.h"
 
 int input_array(matrix arr, int rows, int cols)
 {

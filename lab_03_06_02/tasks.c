@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "consts.h"
+#include "tasks.h"
 
 void fill_arr(matrix arr, int rows, int cols)
 {

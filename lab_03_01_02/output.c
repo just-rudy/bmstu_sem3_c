@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "consts.h"
+#include "output.h"
 
 void print_arr(int *arr, int arr_n)
 {

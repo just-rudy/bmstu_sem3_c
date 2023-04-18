@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "consts.h"
 #include "input.h"
 #include "tasks.h"
@@ -24,12 +23,6 @@ int main()
             int cnt = 0;
             status = make_arr(arr, rows, cols, simple_arr, &cnt);
             if (status == 0)
-            {
-                reverse_arr(simple_arr, cnt);
-                full_matrix(arr, rows, cols, simple_arr);
-                print_arr(arr, rows, cols);
-            }
-            else
             {
                 printf("No simple numbers");
                 status = 1;
