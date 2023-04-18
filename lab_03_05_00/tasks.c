@@ -2,6 +2,9 @@
 
 int check_if_simple(int element);
 void swap(int *link1, int *link2);
+void reverse_arr(int *simple_arr, int cnt);
+void full_matrix(matrix arr, int rows, int cols, int *simple_arr);
+
 
 int check_if_simple(int element)
 {
@@ -30,9 +33,8 @@ int make_arr(matrix arr, int rows, int cols, int *simple_arr, int *cnt)
     status = (*cnt) ? 0 : 1;
     if (status == 0)
         {
-            reverse_arr(simple_arr, cnt);
+            reverse_arr(simple_arr, (*cnt));
             full_matrix(arr, rows, cols, simple_arr);
-            print_arr(arr, rows, cols);
         }
     return status;
 }

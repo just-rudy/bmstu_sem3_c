@@ -22,10 +22,14 @@ int main()
             int simple_arr[MAX_SIZE * MAX_SIZE];
             int cnt = 0;
             status = make_arr(arr, rows, cols, simple_arr, &cnt);
-            if (status == 0)
+            if (status != 0)
             {
                 printf("No simple numbers");
                 status = 1;
+            }
+            else
+            {
+                print_arr(arr, rows, cols);
             }
         }
     }
