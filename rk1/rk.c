@@ -56,12 +56,12 @@ int check_mistakes(int arr[MAX_SIZE][MAX_SIZE], int n)
                 if (i+1 < n && j + 1 < n && arr[i+1][j+1] != 0)
                 {
                     mistakes += 1;
-                    printf("[i, j] = [%d, %d] diag down \n", i, j);
+                    //printf("[i, j] = [%d, %d] diag down \n", i, j);
                 }
                 if (i - 1 >= 0 && j + 1 < n && arr[i-1][j+1] != 0)
                 {
                     mistakes += 1;
-                    printf("[i, j] = [%d, %d] diag up   \n", i, j);
+                    //printf("[i, j] = [%d, %d] diag up   \n", i, j);
                 }
                 if (arr[i][j] != 0 && j + 1 < n && arr[i][j + 1] != 0 && arr[i][j] != arr[i][j + 1])
                 {
@@ -70,7 +70,7 @@ int check_mistakes(int arr[MAX_SIZE][MAX_SIZE], int n)
                         if ((i == n - 1 || (i + 1 < n && arr[i + 1][j] != arr[i][j] && arr[i + 1][j + 1] != arr[i][j + 1])))
                         {
                             mistakes += 1;
-                            printf("[i, j] = [%d, %d] side hor \n", i, j);
+                            //printf("[i, j] = [%d, %d] side hor \n", i, j);
                         }
                     }
                 }
@@ -82,7 +82,7 @@ int check_mistakes(int arr[MAX_SIZE][MAX_SIZE], int n)
                         if ((j == n - 1 || (j + 1 < n && arr[i][j + 1] != arr[i][j] && arr[i + 1][j + 1] != arr[i + 1][j])))
                         {
                             mistakes += 1;
-                            printf("[i, j] = [%d, %d] side vert \n", i, j);
+                            //printf("[i, j] = [%d, %d] side vert \n", i, j);
                         }
                     }
                 }
