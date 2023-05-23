@@ -11,7 +11,7 @@ struct Contact
 
 void separate(char s[256], struct Contact *phone_book);
 //void swap(struct Contact *phone_book, struct Contact *phone_book);
-//void sort(struct Contact *phone_book, int n);
+void sort(struct Contact *phone_book, int n);
 void out_book(FILE *f, struct Contact *phone_book, int n);
 
 int main(int args, char *argv[]) {
@@ -70,7 +70,7 @@ void separate(char s[256], struct Contact *phone_book)
     }
     j = 0;
     i++;
-    while (s[i] != ' ')
+    for (int k = 0; k < 9; k++)
     {
         phone_book->phone_num[j]=s[i];
         j++;
@@ -85,3 +85,5 @@ void out_book(FILE *f, struct Contact *phone_book, int n)
         fprintf(f, "%s %s %s %s\n", phone_book[i].s_name, phone_book[i].name, phone_book[i].f_name, phone_book[i].phone_num);
     }
 }
+
+
