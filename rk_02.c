@@ -68,7 +68,7 @@ void separate(char s[256], struct Contact *phone_book)
         i++;
     }
     i++;
-    for (j = 0; k <= 9; k++)
+    for (j = 0; j <= 9; j++)
     {
         phone_book->phone_num[j]=s[i];
         i++;
