@@ -31,7 +31,6 @@ int main(int args, char *argv[]) {
         
         while (fgets(s, 256, input))
         {
-            s[strlen(s)-1] = 0;
             separate(s, phone_book+n);
             n++;
         }
@@ -68,12 +67,10 @@ void separate(char s[256], struct Contact *phone_book)
         j++;
         i++;
     }
-    j = 0;
     i++;
-    for (int k = 0; k < 9; k++)
+    for (j = 0; k <= 9; k++)
     {
         phone_book->phone_num[j]=s[i];
-        j++;
         i++;
     }
 }
@@ -85,5 +82,3 @@ void out_book(FILE *f, struct Contact *phone_book, int n)
         fprintf(f, "%s %s %s %s\n", phone_book[i].s_name, phone_book[i].name, phone_book[i].f_name, phone_book[i].phone_num);
     }
 }
-
-
