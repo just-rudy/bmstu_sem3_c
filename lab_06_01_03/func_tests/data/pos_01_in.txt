@@ -1,0 +1,7 @@
+3
+dog
+251
+collar
+250
+treat
+25

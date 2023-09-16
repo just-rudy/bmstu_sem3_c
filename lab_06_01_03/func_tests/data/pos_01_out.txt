@@ -1,0 +1,4 @@
+collar
+250
+treat
+25
