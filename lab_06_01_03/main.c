@@ -1,6 +1,6 @@
 #include "consts.h"
 #include "input.h"
-#include "task.h"
+#include "pick_prod.h"
 
 int main(int arg_cnt, char *args[])
 {
@@ -18,7 +18,7 @@ int main(int arg_cnt, char *args[])
         else
         {
             double max_price = 0;
-            status = if_float(args[2], &max_price);
+            status = get_float(args[2], &max_price);
             if (!status)
             {
                 status = read_arr(in, prod_arr, &n);

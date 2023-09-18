@@ -3,7 +3,7 @@
 
 #include "consts.h"
 
-int if_float(char arg[], double *max_price);
+int get_float(char arg[], double *max_price);
 int read_arr(FILE *in, array prod_arr, int *n);
 
 #endif

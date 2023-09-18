@@ -1,42 +1,16 @@
 #include "input.h"
 
-int if_float(char arg[], double *max_price)
+int get_float(char string[], double *number)
 {
-    int if_dot = 0, if_e = 0, i = 0, ln = strlen(arg);
     int status = SUCCSESS;
+    char *ptrEND;
+    double d_num = strtod(string, &ptrEND);
 
-    while (!status && arg[i] != '\n' && arg[i] != '\0' && i < ln)
-    {
-        if ((arg[i] == '+' && (i == 0 || arg[i - 1] == 'e' || arg[i - 1] == 'E')) || (arg[i] <= '9' && arg[i] >= '0'))
-            i++;
-        else if (arg[i] == '-' && i > 0 && (arg[i - 1] == 'e' || arg[i - 1] == 'E'))
-            i++;
-        else if (arg[i] == '.')
-        {
-            if (if_dot)
-                status = PRICE_ERR;
-            else
-            {
-                i++;
-                if_dot = 1;
-            }
-        }
-        else if (arg[i] == 'E' || arg[i] == 'e')
-        {
-            if (if_e)
-                status = PRICE_ERR;
-            else
-            {
-                i++;
-                if_e = 1;
-            }
-        }
-        else
-            status = PRICE_ERR;
-    }
-
-    if (status == SUCCSESS)
-        (*max_price) = atof(arg);
+    if (*ptrEND != 0)
+        status = PRICE_ERR;
+    else
+        (*number) = d_num;
+        
     return status;
 }
 
