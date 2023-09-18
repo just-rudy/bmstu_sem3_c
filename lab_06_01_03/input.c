@@ -3,14 +3,14 @@
 int get_float(char string[], double *number)
 {
     int status = SUCCSESS;
-    char *ptrEND;
-    double d_num = strtod(string, &ptrEND);
+    char *ptrend;
+    double d_num = strtod(string, &ptrend);
 
-    if (*ptrEND != 0)
+    if (*ptrend != 0)
         status = PRICE_ERR;
     else
         (*number) = d_num;
-        
+
     return status;
 }
 
@@ -18,7 +18,7 @@ int read_name(FILE *in, array prod_arr, int i)
 {
     int status = SUCCSESS;
     int j = 0;
-    char tmp = ' ', curr_str[MAX_STR_LEN + 2] = { "" };
+    char tmp = ' ', curr_str[MAX_STR_LEN + 2] = {""};
 
     while (fscanf(in, "%c", &tmp) && tmp != '\n' && tmp != '\0' && j <= MAX_STR_LEN)
     {
