@@ -1,5 +1,6 @@
 #include "consts.h"
 #include "input.h"
+#include "sort_filter.h"
 
 int arg_controller();
 
@@ -7,9 +8,9 @@ int arg_controller();
 int main()
 {
     int arg_cnt = 3;
+    int *arr_first = NULL;
     char *args[] = {"3", "test.txt", "out.txt"};
     int status = SUCCESS;
-    int *arr;
 
     if (arg_cnt < MIN_ARG_CNT || arg_cnt > MAX_ARG_CNT)
         status = ARG_ERROR;
@@ -25,7 +26,7 @@ int main()
                 status = FILE_ERROR;
             else
             {
-                create_array(f_in, arr);
+                create_array(f_in, &arr);
                 fclose(f_out);
             }
             fclose(f_in);

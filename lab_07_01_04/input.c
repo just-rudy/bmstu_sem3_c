@@ -2,9 +2,11 @@
 
 int cnt_elements(FILE *f_in);
 
-void create_array(FILE *f_in, int *arr)
+void create_array(FILE *f_in, int **arr)
 {
     int cnt = cnt_elements(f_in);
+    arr = malloc(cnt * sizeof(int));
+    read
 }
 
 int cnt_elements(FILE *f_in)
