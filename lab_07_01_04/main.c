@@ -8,7 +8,7 @@ int arg_controller();
 int main()
 {
     int arg_cnt = 3;
-    int *arr_first = NULL;
+    int *arr_b = NULL, *arr_e = NULL;
     char *args[] = {"3", "test.txt", "out.txt"};
     int status = SUCCESS;
 
@@ -26,7 +26,7 @@ int main()
                 status = FILE_ERROR;
             else
             {
-                create_array(f_in, &arr);
+                create_array(f_in, &arr_b, &arr_e);
                 fclose(f_out);
             }
             fclose(f_in);
