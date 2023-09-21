@@ -3,7 +3,7 @@
 int get_float(char string[], double *number)
 {
     int status = SUCCSESS;
-    char *ptrend;
+    char *ptrend = NULL;
     double d_num = strtod(string, &ptrend);
 
     if (*ptrend != 0)
