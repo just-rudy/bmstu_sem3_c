@@ -17,12 +17,12 @@
 
 typedef char string[MAX_STR_LEN + 1];
 
-struct products
+struct product
 {
     string name;
     int price;
 };
 
-typedef struct products array[MAX_CNT];
+typedef struct product array[MAX_CNT];
 
 #endif

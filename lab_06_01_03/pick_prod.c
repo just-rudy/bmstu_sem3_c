@@ -1,6 +1,6 @@
 #include "pick_prod.h"
 
-void print(struct products prod);
+void print(struct product prod);
 
 void proccess(array arr, int n, double mprice)
 {
@@ -9,7 +9,7 @@ void proccess(array arr, int n, double mprice)
             print(arr[i]);
 }
 
-void print(struct products prod)
+void print(struct product prod)
 {
     printf("%s\n%d\n", prod.name, prod.price);
 }
