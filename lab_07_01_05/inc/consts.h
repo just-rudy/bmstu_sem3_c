@@ -1,5 +1,9 @@
+#ifndef __CONST_H__
+#define __CONST_H__
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define SUCCESS 0
 #define TRUE 1
@@ -10,3 +14,6 @@
 #define FILE_ERROR 2
 #define EMPTY_FILE 3
 #define IN_FILTER_ERR 4
+#define MALLOC_ERR 5
+
+#endif

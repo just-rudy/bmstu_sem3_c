@@ -3,6 +3,6 @@
 
 #include "consts.h"
 
-void print_array(int *arr_b, int *arr_e);
+void print_array(int *arr_b, int *arr_e, FILE* f_out);
 
 #endif
