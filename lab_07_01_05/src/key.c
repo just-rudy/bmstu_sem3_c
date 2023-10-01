@@ -11,8 +11,12 @@ int key(const int *pb_src, const int *pe_src, int **pb_dst, int **pe_dst)
     {
         int sum = cnt_sum(pb_src, pe_src);
         int cnt = cnt_filtered_el(pb_src, pe_src);
-        if (cnt < 0)
+        // printf("%d/n", cnt);
+        if (cnt <= 0)
+        {
             status = IN_FILTER_ERR;
+            // printf("s: %d\n", status);
+        }
         else
         {
             (*pb_dst) = malloc(cnt * sizeof(int));
@@ -35,6 +39,7 @@ int key(const int *pb_src, const int *pe_src, int **pb_dst, int **pe_dst)
             }
         }
     }
+    // printf("stat: %d\n", status);
     return status;
 }
 

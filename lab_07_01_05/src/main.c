@@ -6,11 +6,11 @@
 
 int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter, FILE *f_out);
 
-int main(int arg_cnt, char *args[])
-// int main()
+// int main(int arg_cnt, char *args[])
+int main()
 {
-    // int arg_cnt = 4;
-    // char *args[] = {"4", "test.txt", "out.txt", "f"};
+    int arg_cnt = 4;
+    char *args[] = {"4", "test.txt", "out.txt", "f"};
 
     int *arr_b = NULL, *arr_e = NULL; // begin & end
     int status = SUCCESS;
@@ -42,7 +42,7 @@ int main(int arg_cnt, char *args[])
     free(arr_b);
     fclose(f_out);
     fclose(f_in);
-    //    printf("stat: %d", status);
+    // printf("stat: %d\n", status);
     return status;
 }
 
@@ -53,20 +53,13 @@ int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter, FILE *f_out)
     {
         int *filtered_arr_b = NULL, *filtered_arr_e = NULL;
         cnt = cnt_filtered_el(arr_b, arr_e);
-        if (cnt > 0)
+        status = key(arr_b, arr_e, &filtered_arr_b, &filtered_arr_e);
+        if (!status)
         {
-            status = key(arr_b, arr_e, &filtered_arr_b, &filtered_arr_e);
-            if (!status)
-            {
-                mysort(filtered_arr_b, cnt, sizeof(int), comparator);
-                print_array(filtered_arr_b, filtered_arr_e, f_out);
-                free(filtered_arr_b);
-            }
-            else
-                status = IN_FILTER_ERR;
+            mysort(filtered_arr_b, cnt, sizeof(int), comparator);
+            print_array(filtered_arr_b, filtered_arr_e, f_out);
+            free(filtered_arr_b);
         }
-        else
-            status = IN_FILTER_ERR;
     }
     else
     {
