@@ -104,7 +104,7 @@ START_TEST(double_elements)
     double res[] = { -1, 0, 1.3, 5.6 };
     size_t n_res = 4;
 
-    mysort(arr, n, sizeof(int), comparator_double);
+    mysort(arr, n, sizeof(double), comparator_double);
     // correct elements
     for (size_t i = 0; i < n_res; i++)
         ck_assert_int_eq(arr[i], res[i]);
