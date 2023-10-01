@@ -7,11 +7,11 @@ TOBJ = out/check_mysort.o out/check_key.o
 app.exe : $(OBJS) out/main.o
 	$(CC) $(CFLAGS) $^ -o $@
 
-unit_testing.exe : $(TOBJS) $(OBJS)
+unit_tests.exe : $(TOBJ) $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@ -lcheck
 
-unit_tests: unit_testing.exe
-	./unit_testing
+unit_testsing: unit_tests.exe
+	./unit_tests.exe
 
 out/%.o : src/%.c inc/*.h
 	mkdir -p out
