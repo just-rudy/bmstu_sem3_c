@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <check.h>
-#include "sort.h"
+#include "key.h"
 
 // Функция тестирования какой-либо задачи.
 START_TEST(single_correct_element)
@@ -10,28 +10,6 @@ START_TEST(single_correct_element)
 
     int res[] = { 100 };
     size_t n_res = 1;
-
-    int *pb = NULL, *pe = NULL;
-
-    key(arr, arr + n, &pb, &pe);
-
-    // correct element cnt
-    ck_assert_int_eq(n_res, pe - pb);
-    // correct elements
-    for (size_t i = 0; i < n_res; i++)
-        ck_assert_int_eq(*(pb + i), res[i]);
-
-    free(pb);
-}
-END_TEST
-
-START_TEST(single_element)
-{
-    int arr[] = { 100 };
-    size_t n = 1;
-
-    int res[] = {  };
-    size_t n_res = 0;
 
     int *pb = NULL, *pe = NULL;
 
@@ -92,7 +70,7 @@ START_TEST(several_elements)
 END_TEST
 
 // Функция создания набора тестов.
-Suite *example_suite_create(void)
+Suite *key_suite_create(void)
 {
     Suite *suite = suite_create("key");
     // Набор разбивается на группы тестов, разделённых по каким-либо критериям.
@@ -100,7 +78,6 @@ Suite *example_suite_create(void)
 
     // Добавление теста в группу тестов.
     tcase_add_test(tcase_core, single_correct_element);
-    tcase_add_test(tcase_core, single_element);
     tcase_add_test(tcase_core, two_elements);
     tcase_add_test(tcase_core, several_elements);
 

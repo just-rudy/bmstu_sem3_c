@@ -11,22 +11,27 @@ int key(const int *pb_src, const int *pe_src, int **pb_dst, int **pe_dst)
     {
         int sum = cnt_sum(pb_src, pe_src);
         int cnt = cnt_filtered_el(pb_src, pe_src);
-        (*pb_dst) = malloc(cnt * sizeof(int));
-        if ((*pb_dst) == NULL)
-            status = MALLOC_ERR;
+        if (cnt < 0)
+            status = IN_FILTER_ERR;
         else
         {
-            int *cur = (int *)pb_src;
-            *pe_dst = *pb_dst;
-            while (cur + 1 < pe_src)
+            (*pb_dst) = malloc(cnt * sizeof(int));
+            if ((*pb_dst) == NULL)
+                status = MALLOC_ERR;
+            else
             {
-                sum -= *cur;
-                if (*cur > sum)
+                int *cur = (int *)pb_src;
+                *pe_dst = *pb_dst;
+                while (cur + 1 < pe_src)
                 {
-                    **pe_dst = *cur;
-                    (*pe_dst)++;
+                    sum -= *cur;
+                    if (*cur > sum)
+                    {
+                        **pe_dst = *cur;
+                        (*pe_dst)++;
+                    }
+                    cur++;
                 }
-                cur++;
             }
         }
     }

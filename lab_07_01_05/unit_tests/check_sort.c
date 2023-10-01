@@ -15,10 +15,10 @@ int comparator_double(const void *a, const void *b)
 // Функция тестирования какой-либо задачи.
 START_TEST(increasing_order)
 {
-    int *arr = { 1, 2, 3, 4, 5, 6 };
+    int arr[] = { 1, 2, 3, 4, 5, 6 };
     size_t n = 6;
 
-    int *res = { 1, 2, 3, 4, 5, 6 };
+    int res[] = { 1, 2, 3, 4, 5, 6 };
     size_t n_res = 6;
 
     mysort(arr, n, sizeof(int), comparator);
@@ -31,10 +31,10 @@ END_TEST
 
 START_TEST(decreasing_order)
 {
-    int *arr = { 6, 5, 4, 3, 2, 1 };
+    int arr[] = { 6, 5, 4, 3, 2, 1 };
     size_t n = 6;
 
-    int *res = { 1, 2, 3, 4, 5, 6 };
+    int res[] = { 1, 2, 3, 4, 5, 6 };
     size_t n_res = 6;
 
     mysort(arr, n, sizeof(int), comparator);
@@ -48,10 +48,10 @@ END_TEST
 
 START_TEST(all_equal)
 {
-    int *arr = { 7, 7, 7, 7, 7, 7 };
+    int arr[] = { 7, 7, 7, 7, 7, 7 };
     size_t n = 6;
 
-    int *res = { 7, 7, 7, 7, 7, 7 };
+    int res[] = { 7, 7, 7, 7, 7, 7 };
     size_t n_res = 6;
 
     mysort(arr, n, sizeof(int), comparator);
@@ -65,10 +65,10 @@ END_TEST
 
 START_TEST(single_element)
 {
-    int *arr = { 1 };
+    int arr[] = { 1 };
     size_t n = 1;
 
-    int *res = { 1 };
+    int res[] = { 1 };
     size_t n_res = 1;
 
     mysort(arr, n, sizeof(int), comparator);
@@ -82,10 +82,10 @@ END_TEST
 
 START_TEST(random_elements)
 {
-    int *arr = { 9, 2, 1, 6, -7, 4, 7 };
+    int arr[] = { 9, 2, 1, 6, -7, 4, 7 };
     size_t n = 7;
 
-    int *res = { -7, 1, 2, 4, 6, 7, 9 };
+    int res[] = { -7, 1, 2, 4, 6, 7, 9 };
     size_t n_res = 7;
 
     mysort(arr, n, sizeof(int), comparator);
@@ -101,7 +101,7 @@ START_TEST(double_elements)
     double arr[] = { 1.3, 5.6, 0, -1 };
     size_t n = 4;
 
-    double *res = { -1, 0, 1.3, 5.6 };
+    double res[] = { -1, 0, 1.3, 5.6 };
     size_t n_res = 4;
 
     mysort(arr, n, sizeof(int), comparator_double);
@@ -114,7 +114,7 @@ END_TEST
 
 
 // Функция создания набора тестов.
-Suite *example_suite_create(void)
+Suite *sort_suite_create(void)
 {
     Suite *suite = suite_create("sort");
     // Набор разбивается на группы тестов, разделённых по каким-либо критериям.
