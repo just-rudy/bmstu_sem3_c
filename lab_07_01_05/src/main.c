@@ -6,11 +6,11 @@
 
 int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter, FILE *f_out);
 
-// int main(int arg_cnt, char *args[])
-int main()
+int main(int arg_cnt, char *args[])
+// int main()
 {
-    int arg_cnt = 4;
-    char *args[] = {"4", "test.txt", "out.txt", "f"};
+    // int arg_cnt = 4;
+    // char *args[] = {"4", "test.txt", "out.txt", "f"};
 
     int *arr_b = NULL, *arr_e = NULL; // begin & end
     int status = SUCCESS;
