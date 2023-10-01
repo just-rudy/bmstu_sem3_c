@@ -24,7 +24,7 @@ void mysort(void *first, size_t number, size_t size, int (*comparator)(const voi
         for (char *cur = arr_b; cur != arr_end; cur += size)
             if (comparator(cur, mx) > 0)
                 mx = cur;
-        swap(mx, arr_end-size, size);
+        swap(mx, arr_end - size, size);
         arr_end -= size;
     }
 }

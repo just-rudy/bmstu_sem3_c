@@ -4,7 +4,7 @@
 #include "key.h"
 #include "output.h"
 
-int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter, FILE* f_out);
+int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter, FILE *f_out);
 
 int main(int arg_cnt, char *args[])
 // int main()
@@ -47,7 +47,7 @@ int main(int arg_cnt, char *args[])
     return status;
 }
 
-int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter, FILE* f_out)
+int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter, FILE *f_out)
 {
     int status = SUCCESS;
     if (if_filter)
