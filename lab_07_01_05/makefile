@@ -7,8 +7,8 @@ TOBJ = out/check_mysort.o out/check_key.o
 app.exe : $(OBJS) out/main.o
 	$(CC) $(CFLAGS) $^ -o $@
 
-# unit_testing.exe : $(TOBJS) $(OBJS)
-#	$(CC) $(CFLAGS) $^ -o $@ -lcheck
+unit_testing.exe : $(TOBJS) $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@ -lcheck
 
 unit_tests: unit_testing.exe
 	./unit_testing
