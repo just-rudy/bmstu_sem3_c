@@ -33,7 +33,6 @@ int main(int arg_cnt, char *args[])
         int if_filter = FALSE;
         if (arg_cnt == MAX_ARG_CNT && *args[3] == 'f')
             if_filter = TRUE;
-
         else if (arg_cnt == MAX_ARG_CNT)
             status = ARG_ERROR;
 
