@@ -1,1 +1,1 @@
-neg_07_args.txt
+func_tests/data/neg_07_in.txt func_tests/data/neg_07_out.txt f

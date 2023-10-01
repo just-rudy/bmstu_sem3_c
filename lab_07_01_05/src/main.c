@@ -1,9 +1,10 @@
 #include "consts.h"
 #include "input.h"
-#include "sort_filter.h"
+#include "sort.h"
+#include "key.h"
 #include "output.h"
 
-int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter);
+int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter, FILE* f_out);
 
 int main(int arg_cnt, char *args[])
 // int main()
@@ -37,7 +38,7 @@ int main(int arg_cnt, char *args[])
             status = ARG_ERROR;
 
         if (!status)
-            status = proccessor(arr_b, arr_e, cnt, if_filter);
+            status = proccessor(arr_b, arr_e, cnt, if_filter, f_out);
     }
     free(arr_b);
     fclose(f_out);
@@ -46,25 +47,32 @@ int main(int arg_cnt, char *args[])
     return status;
 }
 
-int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter)
+int proccessor(int *arr_b, int *arr_e, int cnt, int if_filter, FILE* f_out)
 {
     int status = SUCCESS;
     if (if_filter)
     {
         int *filtered_arr_b = NULL, *filtered_arr_e = NULL;
         cnt = cnt_filtered_el(arr_b, arr_e);
-        status = key(arr_b, arr_e, &filtered_arr_b, &filtered_arr_e);
-        if (!status)
+        if (cnt > 0)
         {
-            mysort(filtered_arr_b, cnt, sizeof(int), comparator);
-            print_array(filtered_arr_b, filtered_arr_e);
-            free(filtered_arr_b);
+            status = key(arr_b, arr_e, &filtered_arr_b, &filtered_arr_e);
+            if (!status)
+            {
+                mysort(filtered_arr_b, cnt, sizeof(int), comparator);
+                print_array(filtered_arr_b, filtered_arr_e, f_out);
+                free(filtered_arr_b);
+            }
+            else
+                status = IN_FILTER_ERR;
         }
+        else
+            status = IN_FILTER_ERR;
     }
     else
     {
         mysort(arr_b, cnt, sizeof(int), comparator);
-        print_array(arr_b, arr_e);
+        print_array(arr_b, arr_e, f_out);
     }
     return status;
 }

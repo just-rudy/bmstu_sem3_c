@@ -1,1 +1,1 @@
-3 pos_02_in.txt pos_02_out.txt
+func_tests/data/pos_02_in.txt func_tests/data/pos_02_out.txt

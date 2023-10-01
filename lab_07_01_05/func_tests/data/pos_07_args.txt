@@ -1,1 +1,1 @@
-4 pos_07_in.txt pos_07_out.txt f
+func_tests/data/pos_07_in.txt func_tests/data/pos_07_out.txt f
